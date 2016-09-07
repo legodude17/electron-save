@@ -1,0 +1,40 @@
+{
+  "name": "electron-save",
+  "version": "1.0.0",
+  "description": "A module for cross platform saving and loading",
+  "homepage": "https://github.com/legodude17/electron-save#readme",
+  "author": {
+    "name": "JDB",
+    "email": "",
+    "url": "https://legodude17.github.io"
+  },
+  "main": "index.js",
+  "keywords": [
+    "electron",
+    "save",
+    "file"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "*",
+    "eslint": "*"
+  },
+  "eslintConfig": {
+    "env": {
+      "mocha": true,
+      "node": true
+    }
+  },
+  "scripts": {
+    "lint": "eslint *.js",
+    "test": "echo &#34;Error: No test&#34;; exit 1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legodude17/electron-save"
+  },
+  "bugs": {
+    "url": ""
+  }
+}
