@@ -11,13 +11,20 @@ function makeConfig(path, cb) {
     cb(null, {
       get(i) {
         return data[i];
-      }
+      },
       set(i, v) {
         data[i] = v;
-      }
+      },
+      set: function (i, v) {
+        data[i] = v;
+      },
+      setAll: function (obj) {
+        data = JSON.parse(JSON.stringify(obj));
+      },
       save(cb) {
         fs.writeFile(path, JSON.stringify(data), cb);
-      }
+      },
+      path: path
     });
   });
 }
@@ -28,13 +35,20 @@ makeConfig.sync = function makeConfigSync(path, cb) {
   return {
     get: function (i) {
       return data[i];
-    }
+    },
+    getAll: function () {
+      return JSON.parse(JSON.stringify(data));
+    },
     set: function (i, v) {
       data[i] = v;
-    }
+    },
+    setAll: function (obj) {
+      data = JSON.parse(JSON.stringify(obj));
+    },
     save: function (cb) {
       fs.writeFileSync(path, JSON.stringify(data));
-    }
+    },
+    path: path
   };
 }
 
@@ -61,3 +75,6 @@ load.sync = function loadSync(name) {
     return makeConfig.sync(file);
   }
 }
+
+load._makeConfig = makeConfig;
+module.exports = load;
